@@ -4,6 +4,9 @@ use parameters
 
 использование встроенных параметров
     Когда я говорю "привет", ты отвечаешь "привет"
+    Когда я говорю ыыы, ты отвечаешь ыыы
+    ${var}=    Set Variable    hi
+    Когда я говорю ${var}, ты отвечаешь ${var}
 
 *** Keywords ***
 When I say ${first} you should answer ${second}
