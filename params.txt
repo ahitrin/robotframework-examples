@@ -1,0 +1,13 @@
+*** Test Cases ***
+use parameters
+    When I say "hello" you should answer "hello"
+
+использование встроенных параметров
+    Когда я говорю "привет", ты отвечаешь "привет"
+
+*** Keywords ***
+When I say ${first} you should answer ${second}
+    Should Be Equal    ${first}    ${second}
+
+Когда я говорю ${приветствие}, ты отвечаешь ${ответ}
+    Should Be Equal    ${приветствие}    ${ответ}
