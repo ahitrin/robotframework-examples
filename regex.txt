@@ -1,0 +1,12 @@
+*** Settings ***
+Documentation     Проверяем возможность выковыривания подстроки из строки с помощью регэкспа
+Library           String
+
+*** Test Cases ***
+можно заменить строку регэкспом
+    ${string}=    Replace String Using Regexp    hello123there    (hello|hi)    привет
+    Should Be Equal    ${string}    привет123there
+
+можно заменить строку регэкспом и получить группу из строки
+    ${string}=    Replace String Using Regexp    hello123there    [a-z]\+([0-9]\+).*    \\1
+    Should Be Equal    ${string}    123
