@@ -1,0 +1,7 @@
+# Robot Framework
+log.html
+output.xml
+report.html
+
+# Python
+*.pyc
