@@ -1,0 +1,50 @@
+*** Settings ***
+Library           lib
+Library           Collections
+
+*** Test Cases ***
+Simple Usage
+    [Documentation]    passed
+    Args List    hello=world
+
+Pass Into Wrapper, Variable Syntax
+    [Documentation]    failed: Keyword 'lib.Args List' expected 0 non-keyword arguments, got 1
+    Wrap1    hello=world
+
+Pass Into Wrapper, List Syntax
+    [Documentation]    failed: Keyword 'lib.Args List' expected 0 non-keyword arguments, got 1
+    Wrap2    hello=world
+
+Pass Into Wrapper, Escape Variable Syntax
+    [Documentation]    failed: Keyword 'lib.Args List' expected 0 non-keyword arguments, got 1
+    Wrap3    hello=world
+
+Pass Into Wrapper, Escape List Syntax
+    [Documentation]    failed: Keyword 'lib.Args List' expected 0 non-keyword arguments, got 1
+    Wrap4    hello=world
+
+Transform List To Dict
+    [Documentation]    passed
+    Wrap5    hello=world
+
+*** Keywords ***
+Wrap1
+    [Arguments]    @{args}
+    Args List    ${args}
+
+Wrap2
+    [Arguments]    @{args}
+    Args List    @{args}
+
+Wrap3
+    [Arguments]    @{args}
+    Args List    \${args}
+
+Wrap4
+    [Arguments]    @{args}
+    Args List    \@{args}
+
+Wrap5
+    [Arguments]    @{args}
+    Append To List    ${args}    meaning_of_life=42
+    Args List1    @{args}
