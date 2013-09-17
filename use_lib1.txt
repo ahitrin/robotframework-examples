@@ -1,0 +1,7 @@
+*** Settings ***
+Library        src/LibA.py
+
+*** Test Cases ***
+Call Library Method
+    ${x}=    Foo
+    Should Be Equal    "${x}"    "1"
