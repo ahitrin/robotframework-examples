@@ -1,7 +1,12 @@
 *** Settings ***
-Library        src/LibA.py
 
 *** Test Cases ***
 Call Library Method
+    Import Library     src/LibA.py
     ${x}=    Foo
     Should Be Equal    "${x}"    "1"
+
+Call Method From Library-In-Directory
+    Import Library     src/LibB/
+    ${x}=    Bar
+    Should Be Equal    "${x}"    "bar"
